@@ -38,10 +38,9 @@ class ExpenseTracker:
       
       
     def categorize_shopping(self,shopping_list):
-		"""This method will contain a dictionary with categories the user will use to divide who/what to shop for.
+        """This method will contain a dictionary with categories the user will use to divide who/what to shop for 
         
         
         Args:
 			shopping_list: the dictionary that will add the categories the user inputs.
-
-		"""
+        """

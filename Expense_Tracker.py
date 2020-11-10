@@ -25,7 +25,24 @@ class ExpenseTracker:
         Side effect:
             Value of the tuples will change
         '''    
-     
+    def print_amount(self,funds):
+        """This method will print the amount of funds remaining after using the funds
+        Args:
+            funds (float): the funds available for use
+        Side effect:
+            print statement
+        
+        """
+        
+    def increase_funds(self, funds):
+        """This method will allow the user to update or increase the funds
+        that he/she wishes to be available for use
+        
+        Side Effect:
+            value of the funds will update/increase
+        
+        
+        """
     def balance_warning(self,halfway_balance,low_balance):
         '''This method will include a function that will notify the user with a balance warning based on what they set as half and 
         minimum funds.

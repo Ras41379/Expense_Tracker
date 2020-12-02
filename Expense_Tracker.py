@@ -3,29 +3,17 @@ class ExpenseTracker:
     Program that allows users to track expenses. 
     '''
     
-<<<<<<< HEAD
-    def __init__(self): # Chika 
-=======
     def __init__(self): #Chika
->>>>>>> 20c2763c250886e42c7edef4c29dfe2cf5838ecc
         '''
         Initializes the user attribute and tuple that will hold data.
         '''
         
-<<<<<<< HEAD
-    def funds(self): # Sharon
-=======
     def funds(self): #Sharon
->>>>>>> 20c2763c250886e42c7edef4c29dfe2cf5838ecc
         '''
         Allows user to input available funds
         '''                                      
     
-<<<<<<< HEAD
-    def Subtraction(self,total_amount): # Chika 
-=======
     def Subtraction(self,total_amount): #Chika
->>>>>>> 20c2763c250886e42c7edef4c29dfe2cf5838ecc
         ''' Subtracts the amount of each expense from the total_amount_to_spend
         
         Attributes:

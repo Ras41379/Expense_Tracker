@@ -8,7 +8,7 @@ class ExpenseTracker:
         Initializes the user attribute and tuple that will hold data.
         '''
         
-    def available_funds(self):
+    def funds(self):
         '''
         Allows user to input available funds
         '''                                      
@@ -35,7 +35,7 @@ class ExpenseTracker:
             print statement
         """
         
-    def increase_funds(self, funds):
+    def unds(self, funds):
         """This method will allow the user to update or increase the funds
         that he/she wishes to be available for use
         

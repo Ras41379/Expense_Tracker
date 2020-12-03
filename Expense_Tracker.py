@@ -14,7 +14,8 @@ class ExpenseTracker:
         Initializes the user attribute and tuple that will hold data.
         '''
         self.balance = balance
-        self.deduction = deduction
+        self.spent = funds()
+        # self.deduction = deduction
         
     def funds(self): #Sharon
         '''
@@ -23,24 +24,24 @@ class ExpenseTracker:
         # use f string to ask user to input balance 
         #will be used for suctration method
         
-        deposit = int(input("Enter amount of funds that you wish to input:"))
+        deposit = int(input("Enter amount of funds that you wish to input: "))
         new_balance = self.balance + deposit
         print(f"Amount of funds available {new_balance}")
         return (new_balance)
         
     def subtraction(self): #Chika
-        ''' Subtracts the amount of each expense from the total_amount_to_spend
-            Parameters:
-                balance (int): 
+        ''' 
+        Subtracts the amount of each expense from the total_amount_to_spend.
+
         '''
-        #  call stored balance to get remaining balance        
-        
-        if self.deduction > self.balance:
-            print("Not enough availble funds. Please enter new expense: ")        
-        updated_amount = self.balance - self.deduction
-        # print(f"You new balance is {updated_amount}")   
-        return updated_amount        
-    
+        #  call stored balance to get remaining balance  
+               
+        deduction = int(input("How much have you spent from your current balance? ")
+        updated_amount = self.balance - deduction
+        print(f"You new balance is {updated_amount}") 
+        if deduction > self.balance:
+            print("Not enough availble funds. Please enter new expense.")
+                
     def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary
         
@@ -88,4 +89,4 @@ class ExpenseTracker:
     
     if __name__ == "__main__": #Ray
         
-        
+xx

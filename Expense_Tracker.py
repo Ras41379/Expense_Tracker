@@ -14,9 +14,9 @@ class ExpenseTracker:
         Initializes the user attribute and tuple that will hold data.
         '''
         # self.value = value
-        self.balance = balance
+        # self.balance = balance
         
-    def funds(self): #Sharon
+    def funds(self, balance): #Sharon
         '''
         Allows user to input available funds and add to existing balance
         '''                                      
@@ -28,7 +28,7 @@ class ExpenseTracker:
         print(f"Amount of funds available {new_balance}")
         return (new_balance)
         
-    def subtraction(self, deduction): #Chika
+    def subtraction(self, balance, deduction): #Chika
         ''' Subtracts the amount of each expense from the total_amount_to_spend
             Parameters:
                 deduction (int): the amount to be deducted from the balance.
@@ -62,19 +62,19 @@ class ExpenseTracker:
         """
         print("Amount left in your account: "+ str(balance))
         
-    def balance_warning(self,balance): #Christian
+    def balance_warning(self,balance, funds): #Christian
         '''This method will include a function that will notify the user with a 
         balance warning (based on what they set as half and minimum funds).
         
         Args:
             balance: The user’s stored balance 
 		'''
-    if balance <= funds / 2:
-        print("WARNING: You have used half of your available funds. "
-              f"Remaining balance: {balance}")
-    if balance <= funds / 4:
-        print("LOW BALANCE WARNING: You have used 75 percent of your available" 
-              f"funds. Remaining balance: {balance}")  
+        if balance <= funds / 2:
+            print("WARNING: You have used half of your available funds. "
+                f"Remaining balance: {balance}")
+        if balance <= funds / 4:
+            print("LOW BALANCE WARNING: You have used 75 percent of your available" 
+                f"funds. Remaining balance: {balance}")  
             
     def categorize_shopping(self,shopping_list): #Christian
         '''This method will contain a dictionary to categorize what the 

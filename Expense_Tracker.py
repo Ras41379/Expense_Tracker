@@ -37,10 +37,11 @@ class ExpenseTracker:
         #     totals (dict): Holds the balance values for the user.
         
         Side effect:
-            Value of the tuples will change
+            Value of the dictionary will change
+            
         '''  
-          
-    def print_amount(self,funds): #Sharon
+            
+    def print_amount(self,balance): #Sharon
         """This method will print the amount of funds remaining after using the 
         funds
         
@@ -50,7 +51,7 @@ class ExpenseTracker:
             print statement
         """
         
-    def balance_warning(self,halfway_balance,low_balance): #Christian
+    def balance_warning(self,balance): #Christian
         '''This method will include a function that will notify the user with a 
         balance warning based on what they set as half and minimum funds.
         
@@ -60,6 +61,10 @@ class ExpenseTracker:
             low_balance: When the user’s balance is as low as they indicated to 
             avoid.
 		'''
+    #if else, if balance equals half of stored_balance
+    #f string for available balance of x, print warning message
+    #if balance == stored_amount/2 
+    #if stored_balance <=0 
     
     def categorize_shopping(self,shopping_list): #Christian
         '''
@@ -71,5 +76,7 @@ class ExpenseTracker:
             shopping_list: the dictionary that will add the categories the user 
             inputs.
         '''
+        #shopping_list = []
         
-    if __name__ == __main__() #Ray
+    if __name__ == __main__() 
+    #Ray

@@ -20,17 +20,18 @@ class ExpenseTracker:
             value(float): the amount to be subtracted from total   
         '''
         
-    def Store_balance(self,total_amount): #Ray
+    def Store_balance(self,balance): #Ray
         ''' After user is done, saves the amount_spent to a dictionary
         
         Attribute:
             totals (dict): Holds the balance values for the user.
         
         Side effect:
-            Value of the tuples will change
+            Value of the dictionary will change
+            
         '''  
-          
-    def print_amount(self,funds): #Sharon
+            
+    def print_amount(self,balance): #Sharon
         """This method will print the amount of funds remaining after using the 
         funds
         
@@ -67,5 +68,11 @@ class ExpenseTracker:
         '''
         #shopping_list = []
         
+<<<<<<< Updated upstream
     if __name__ == __main__() 
     #Ray
+=======
+    if __name__ == __main__() #Ray
+    
+    
+>>>>>>> Stashed changes

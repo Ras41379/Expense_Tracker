@@ -30,7 +30,7 @@ class ExpenseTracker:
         total_amount  = balance - deduction 
         print(f"You new balance is {total_amount}")   
                 
-    def Store_balance(self,total_amount): #Ray
+    def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary
         
         # Attribute:

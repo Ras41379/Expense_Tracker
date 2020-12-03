@@ -59,28 +59,26 @@ class ExpenseTracker:
         
     def balance_warning(self,balance): #Christian
         '''This method will include a function that will notify the user with a 
-        balance warning based on what they set as half and minimum funds.
+        balance warning (based on what they set as half and minimum funds).
         
         Args:
-            halfway_balance: When the user’s balance is half of what they 
-            initially put into the tracker
-            low_balance: When the user’s balance is as low as they indicated to 
-            avoid.
+            balance: The user’s stored balance 
 		'''
-    #if else statement, if balance equals half of stored_balance
-    #make an f string for available balance of x, print warning message
-    #if balance == stored_amount/2 
-    #if stored_balance <=0 
-    
+    if balance <= funds / 2:
+        print("WARNING: You have used half of your available funds. "
+              f"Remaining balance: {balance}")
+    if balance <= funds / 4:
+        print("LOW BALANCE WARNING: You have used 75 percent of your available" 
+              f"funds. Remaining balance: {balance}")  
+            
     def categorize_shopping(self,shopping_list): #Christian
-        '''
-        This method will contain a dictionary with categories the user will 
-        use to divide who/what to shop for 
+        '''This method will contain a dictionary to categorize what the 
+        user will shop for. 
         
         
         Args:
             shopping_list: the dictionary that will add the categories the user 
-            inputs.
+            indicates. 
         '''
         #shopping_list = []
         

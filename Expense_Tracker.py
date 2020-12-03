@@ -15,10 +15,15 @@ class ExpenseTracker:
         
     def funds(self): #Sharon
         '''
-        Allows user to input available funds
+        Allows user to input available funds and add to existing balance
         '''                                      
         # use f string to ask user to input balance 
         #will be used for suctration method
+        
+        deposit = int(input("Enter amount of funds that you wish to input:"))
+        new_balance = balance + deposit
+        print(f"Amount of funds available {new_balance}")
+        return (new_balance)
         
     def Subtraction(self, balance, deduction): #Chika
         ''' Subtracts the amount of each expense from the total_amount_to_spend
@@ -50,6 +55,7 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
+        print("Amount left in your account:"+ str(balance))
         
     def balance_warning(self,balance): #Christian
         '''This method will include a function that will notify the user with a 

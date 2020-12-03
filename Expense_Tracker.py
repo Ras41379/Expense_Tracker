@@ -1,8 +1,11 @@
+from argparse import ArgumentParser
+import sys
+
 class ExpenseTracker:
     '''
     Program that allows users to track expenses. 
     Attributes: 
-        value(float): the amount to be subtracted from total
+        balance (float): the users available funds 
         deduction (float): the amount to be subtracted from total   
     '''
     
@@ -10,7 +13,7 @@ class ExpenseTracker:
         '''
         Initializes the user attribute and tuple that will hold data.
         '''
-        self.value = value
+        # self.value = value
         self.balance = balance
         
     def funds(self): #Sharon
@@ -25,15 +28,17 @@ class ExpenseTracker:
         print(f"Amount of funds available {new_balance}")
         return (new_balance)
         
-    def Subtraction(self, balance, deduction): #Chika
+    def subtraction(self, deduction): #Chika
         ''' Subtracts the amount of each expense from the total_amount_to_spend
             Parameters:
-                balance (int): 
+                deduction (int): the amount to be deducted from the balance.
         '''
-        #  call stored balance to get remaining balance        
-        
-        total_amount  = balance - deduction 
-        print(f"You new balance is {total_amount}")   
+        #  call stored balance to get remaining balance  
+               
+        total_amount  = balance - deduction
+        print(f"You new balance is {total_amount}") 
+        if deduction > balance:
+            print("Not enough availble funds.")
                 
     def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary
@@ -42,10 +47,10 @@ class ExpenseTracker:
         #     totals (dict): Holds the balance values for the user.
         
         Side effect:
-            Value of the dictionary will change
-            
+            Value of the dictionary will change    
         '''  
-            
+        
+        
     def print_amount(self,balance): #Sharon
         """This method will print the amount of funds remaining after using the 
         funds
@@ -55,7 +60,7 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print("Amount left in your account:"+ str(balance))
+        print("Amount left in your account: "+ str(balance))
         
     def balance_warning(self,balance): #Christian
         '''This method will include a function that will notify the user with a 
@@ -81,6 +86,13 @@ class ExpenseTracker:
             indicates. 
         '''
         #shopping_list = []
+    
+    def parse_args(self):
+        """ Parse command-line arguments"""
+        parser = ArgumentParser()
+        parser.add_argument("filename")
+        return parser.parse_args()    
+    
+    if __name__ == "__main__": #Ray
+        args = parse_args(sys.argv[1:])
         
-    if __name__ == __main__() 
-    #Ray

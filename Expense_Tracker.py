@@ -51,8 +51,8 @@ class ExpenseTracker:
             low_balance: When the user’s balance is as low as they indicated to 
             avoid.
 		'''
-    #if else, if balance equals half of stored_balance
-    #f string for available balance of x, print warning message
+    #if else statement, if balance equals half of stored_balance
+    #make an f string for available balance of x, print warning message
     #if balance == stored_amount/2 
     #if stored_balance <=0 
     
@@ -68,11 +68,6 @@ class ExpenseTracker:
         '''
         #shopping_list = []
         
-<<<<<<< Updated upstream
-    if __name__ == __main__() 
-    #Ray
-=======
     if __name__ == __main__() #Ray
     
     
->>>>>>> Stashed changes

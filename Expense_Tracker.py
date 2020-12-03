@@ -62,4 +62,5 @@ class ExpenseTracker:
             inputs.
         '''
         
-    if __name__ == __main__() #Ray
+    if __name__ == __main__() 
+    #Ray

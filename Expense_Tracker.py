@@ -2,7 +2,7 @@ class ExpenseTracker:
     '''
     Program that allows users to track expenses. 
     Attributes: 
-        value(float): the amount to be subtracted from total
+        balance (float): the users available funds 
         deduction (float): the amount to be subtracted from total   
     '''
     
@@ -10,7 +10,7 @@ class ExpenseTracker:
         '''
         Initializes the user attribute and tuple that will hold data.
         '''
-        self.value = value
+        # self.value = value
         self.balance = balance
         
     def funds(self): #Sharon
@@ -25,15 +25,17 @@ class ExpenseTracker:
         print(f"Amount of funds available {new_balance}")
         return (new_balance)
         
-    def Subtraction(self, balance, deduction): #Chika
+    def subtraction(self, deduction): #Chika
         ''' Subtracts the amount of each expense from the total_amount_to_spend
             Parameters:
-                balance (int): 
+                deduction (int): the amount to be deducted from the balance.
         '''
-        #  call stored balance to get remaining balance        
-        
-        total_amount  = balance - deduction 
-        print(f"You new balance is {total_amount}")   
+        #  call stored balance to get remaining balance  
+               
+        total_amount  = balance - deduction
+        print(f"You new balance is {total_amount}") 
+        if deduction > balance:
+            print("Not enough availble funds.")
                 
     def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary

@@ -1,3 +1,6 @@
+from argparse import ArgumentParser
+import sys
+
 class ExpenseTracker:
     '''
     Program that allows users to track expenses. 
@@ -42,10 +45,10 @@ class ExpenseTracker:
         #     totals (dict): Holds the balance values for the user.
         
         Side effect:
-            Value of the dictionary will change
-            
+            Value of the dictionary will change    
         '''  
-            
+        
+        
     def print_amount(self,balance): #Sharon
         """This method will print the amount of funds remaining after using the 
         funds
@@ -55,7 +58,7 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print("Amount left in your account:"+ str(balance))
+        print("Amount left in your account: "+ str(balance))
         
     def balance_warning(self,balance): #Christian
         '''This method will include a function that will notify the user with a 
@@ -83,6 +86,13 @@ class ExpenseTracker:
             inputs.
         '''
         #shopping_list = []
+    
+    def parse_args(self):
+        """ Parse command-line arguments"""
+        parser = ArgumentParser()
+        parser.add_argument("filename")
+        return parser.parse_args()    
+    
+    if __name__ == "__main__": #Ray
+        args = parse_args(sys.argv[1:])
         
-    if __name__ == __main__() 
-    #Ray

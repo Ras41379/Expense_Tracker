@@ -9,7 +9,7 @@ class ExpenseTracker:
         deduction (float): the amount to be subtracted from total   
     '''
     
-    def __init__(self): #Chika
+    def __init__(self, value, balance, deduction): #Chika
         '''
         Initializes the user attribute and tuple that will hold data.
         '''
@@ -88,13 +88,11 @@ class ExpenseTracker:
         '''
         #shopping_list = []
     
-    def parse_args(self):
-        """ Parse command-line arguments"""
-        parser = ArgumentParser()
-        parser.add_argument("filename")
-        return parser.parse_args()    
+    def main():
+        funds(500)
+        subtraction(100)
+        print_amount()  
     
     if __name__ == "__main__": #Ray
-        args = parse_args(sys.argv[1:])
+        main()
         
-``

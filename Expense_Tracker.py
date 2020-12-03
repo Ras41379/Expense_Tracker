@@ -35,9 +35,9 @@ class ExpenseTracker:
         '''
         #  call stored balance to get remaining balance        
         
+        updated_amount = self.balance - self.deduction
         if self.deduction > self.balance:
             print("Not enough availble funds. Please enter new expense: ")        
-        updated_amount = self.balance - self.deduction
         # print(f"You new balance is {updated_amount}")   
         return updated_amount        
     
@@ -67,13 +67,11 @@ class ExpenseTracker:
         '''This method will notify the user with a balance 
         warning (based on what they set as half and minimum funds). 
 	    '''
-        
-        if self.balance <= self.spent / 2:
-            print(f"WARNING: You have used half of your available funds. Remaining 
-            balance: {self.balance}")
-        if self.balance <= self.spent / 4:
-            print(f"LOW BALANCE WARNING: You have used 75 percent of your 
-            available funds. Remaining balance: {self.balance}")  
+    
+        if self.balance <= self.deduction / 2:
+            print(f"WARNING: You have used half of your available funds. Remaining balance: {self.balance}")
+        if self.balance <= self.deduction / 4:
+            print(f"LOW BALANCE WARNING: You have used 75 percent of your available funds. Remaining balance: {self.balance}")  
     
     def categorize_shopping(self,shopping_list): #Christian
         '''
@@ -85,7 +83,10 @@ class ExpenseTracker:
             inputs.
         '''
         #shopping_list = [] 
-    
-    if __name__ == "__main__": #Ray
+
+s = ExpenseTracker(0,100)    
+s.funds()
+s.subtraction()
+
         
         

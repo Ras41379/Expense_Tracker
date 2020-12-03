@@ -62,13 +62,15 @@ class ExpenseTracker:
         print("Amount left in your account: "+ str(self.balance))
         
     def balance_warning(self): #Christian
-        '''This method will include a function that will notify the user with a 
-        balance warning (based on what they set as half and minimum funds).             
-		'''
-    #if else statement, if balance equals half of stored_balance
-    #make an f string for available balance of x, print warning message
-    #if balance == stored_amount/2 
-    #if stored_balance <=0 
+      '''This method will notify the user with a balance 
+      warning (based on what they set as half and minimum funds). 
+		  '''
+      if self.balance <= self.spent / 2:
+        print(f"WARNING: You have used half of your available funds. Remaining 
+              balance: {self.balance}")
+      if self.balance <= self.spent / 4:
+        print(f"LOW BALANCE WARNING: You have used 75 percent of your 
+              available funds. Remaining balance: {self.balance}")  
     
     def categorize_shopping(self,shopping_list): #Christian
         '''

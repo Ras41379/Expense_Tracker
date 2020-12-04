@@ -49,18 +49,29 @@ class ExpenseTracker:
                 print(f"Your updated balance is ${self.updated_amount}")
                 return self.updated_amount
     
-    def store_balance(self,total_amount): #Ray
+    def store_balance(self): #Ray #Not completed
         ''' After user is done, saves the amount_spent to a dictionary
+        (Used with catorgize_shopping method to build the dictionary)
         
+<<<<<<< Updated upstream
     # Attribute:
     #     totals (dict): Holds the balance values for the user.
+=======
+        Attribute:
+            totals (dict): Holds the balance values for the user.
+>>>>>>> Stashed changes
         
         Side effect:
             Value of the dictionary will change    
         '''  
+<<<<<<< Updated upstream
         
         
     def print_amount(self): #Sharon: not yet completed
+=======
+           
+    def print_amount(self): #Sharon
+>>>>>>> Stashed changes
         """This method will print the amount of funds remaining after using the 
         funds
         
@@ -81,9 +92,7 @@ class ExpenseTracker:
         elif self.balance <= self.deduction / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                   f"available funds. Remaining balance: {self.updated_amount}")  
-        
-        
-        
+            
     def categorize_shopping(self,shopping_list): #Christian
         '''
         This method will contain a dictionary with categories the user will 
@@ -94,7 +103,8 @@ class ExpenseTracker:
             inputs.
         '''
         #shopping_list = [] 
-def main():
+        
+def main(): #Ray
     s = ExpenseTracker()    
     s.funds()
     s.subtraction()

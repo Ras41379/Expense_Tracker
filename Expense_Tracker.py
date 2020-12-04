@@ -68,14 +68,8 @@ class ExpenseTracker:
         '''This method will notify the user with a balance 
         warning (based on what they set as half and minimum funds). 
 	    '''
-<<<<<<< Updated upstream
     
         if self.deduction <= self.balance / 2:
-=======
-        
-        
-        if self.balance <= self.deduction / 2:
->>>>>>> Stashed changes
             print(f"WARNING: You have used half of your available funds. Remaining balance: {self.balance}")
         elif self.balance <= self.deduction / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your available funds. Remaining balance: {self.balance}")  

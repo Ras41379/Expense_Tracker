@@ -27,9 +27,9 @@ class ExpenseTracker:
         #will be used for suctration method
         
         deposit = int(input("Enter amount of funds that you wish to input:"))
-        new_balance = self.balance + deposit
-        print(f"Amount of funds available {new_balance}")
-        return (new_balance)
+        self.new_balance = self.balance + deposit
+        print(f"Amount of funds available {self.new_balance}")
+        return (self.new_balance)
         
     def subtraction(self): #Chika
         ''' 
@@ -37,13 +37,15 @@ class ExpenseTracker:
         Returns: 
             Updated amount after subtracting expense.
         '''        
-        deduct = int(input("Enter amount spent: "))
-        updated_amount = self.new_balance - deduct      
-        if deduct > self.new_balance:
-            print("Not enough availble funds. Please enter new expense: ")
-        else:
-            print(f"Your updated balance is ${updated_amount}")
-        # return updated_amount
+        while True:
+            deduct = int(input("Enter amount spent: "))
+            self.updated_amount = self.new_balance - deduct      
+            if deduct > self.new_balance:
+                print("Not enough availble funds. Please enter new expense: ")
+                continue
+            else:
+                print(f"Your updated balance is ${self.updated_amount}")
+                return self.updated_amount
     
     def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary
@@ -90,10 +92,11 @@ class ExpenseTracker:
             inputs.
         '''
         #shopping_list = [] 
-
-s = ExpenseTracker()    
-s.funds()
-s.subtraction()
-s.balance_warning()
+def main():
+    s = ExpenseTracker()    
+    s.funds()
+    s.subtraction()
+    s.balance_warning()
+main()
         
         

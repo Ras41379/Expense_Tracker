@@ -1,4 +1,4 @@
-#  Group 312: Chika Chuku, Sharon Lee, Christian Escobar
+#  Group 312: Chika Chuku, Sharon Lee, Christian Escobar, Ray Swenton
 from argparse import ArgumentParser
 import sys
 

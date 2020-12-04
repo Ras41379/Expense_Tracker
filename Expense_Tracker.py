@@ -37,6 +37,7 @@ class ExpenseTracker:
         Returns: 
             Updated amount after subtracting expense.
         '''        
+<<<<<<< Updated upstream
         while True:
             deduct = int(input("Enter amount spent: "))
             self.updated_amount = self.new_balance - deduct      
@@ -46,6 +47,15 @@ class ExpenseTracker:
             else:
                 print(f"Your updated balance is ${self.updated_amount}")
                 return self.updated_amount
+=======
+        deduct = int(input("Enter amount spent: "))
+        updated_amount = new_balance - deduct      
+        if deduct > new_balance:
+            print("Not enough availble funds. Please enter new expense: ")
+        else:
+            print(f"Your updated balance is ${updated_amount}")
+        # return updated_amount
+>>>>>>> Stashed changes
     
     def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary

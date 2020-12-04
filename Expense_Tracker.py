@@ -53,25 +53,15 @@ class ExpenseTracker:
         ''' After user is done, saves the amount_spent to a dictionary
         (Used with catorgize_shopping method to build the dictionary)
         
-<<<<<<< Updated upstream
-    # Attribute:
-    #     totals (dict): Holds the balance values for the user.
-=======
         Attribute:
             totals (dict): Holds the balance values for the user.
->>>>>>> Stashed changes
         
         Side effect:
             Value of the dictionary will change    
         '''  
-<<<<<<< Updated upstream
         
         
     def print_amount(self): #Sharon: not yet completed
-=======
-           
-    def print_amount(self): #Sharon
->>>>>>> Stashed changes
         """This method will print the amount of funds remaining after using the 
         funds
         

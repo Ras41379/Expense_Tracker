@@ -11,7 +11,7 @@ class ExpenseTracker:
         update_amount(float): total balance after deducted expenses.
         new_balance(float): total balance after funds are deposited.
         totals (dict): Holds the balance values for the user.
-          
+      
 
     '''
     
@@ -76,12 +76,13 @@ class ExpenseTracker:
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''
-        if self.deduction <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds." 
-                  f"Remaining balance: {self.updated_amount}")
-        elif self.balance <= self.deduction / 4:
+        if self.balance <= self.deduction / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                   f"available funds. Remaining balance: {self.updated_amount}") 
+        elif self.deduction <= self.balance / 2:
+            print(f"WARNING: You have used half of your available funds." 
+                  f"Remaining balance: {self.updated_amount}")
+        
         
     def categorize_shopping(self): #Christian #not completed
         '''This method will contain a dictionary with categories the user will 

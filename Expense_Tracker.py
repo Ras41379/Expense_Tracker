@@ -1,4 +1,4 @@
-#  Group 312: Chika Chuku,
+#  Group 312: Chika Chuku, Sharon Lee
 from argparse import ArgumentParser
 import sys
 
@@ -25,6 +25,8 @@ class ExpenseTracker:
     def funds(self): #Sharon
         '''
         Allows user to input available funds and add to existing balance
+        Returns:
+            Updated amount/new balance after user inputs desired funds
         '''                                      
         # use f string to ask user to input balance 
         #will be used for suctration method
@@ -65,9 +67,6 @@ class ExpenseTracker:
     def print_amount(self): #Sharon: not yet completed
         """This method will print the amount of funds remaining after using the 
         funds
-        
-        Args:
-            funds (float): the funds available for use
         Side effect:
             print statement
         """

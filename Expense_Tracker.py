@@ -71,24 +71,20 @@ class ExpenseTracker:
         
     def balance_warning(self): #Christian
         '''This method will notify the user with a balance 
-        warning (based on what they set as half and minimum funds). 
+        warning for half and low available funds. 
 	    '''
-    
         if self.deduction <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds. Remaining balance: {self.updated_amount}")
-        if self.balance <= self.deduction / 4:
-            print(f"LOW BALANCE WARNING: You have used 75 percent of your available funds. Remaining balance: {self.updated_amount}")  
+            print(f"WARNING: You have used half of your available funds." 
+                  f"Remaining balance: {self.updated_amount}")
+        elif self.balance <= self.deduction / 4:
+            print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
+                  f"available funds. Remaining balance: {self.updated_amount}") 
         
-    def categorize_shopping(self,shopping_list): #Christian
+    def categorize_shopping(self): #Christian #not completed
+        '''This method will contain a dictionary with categories the user will 
+        use to know what to shop for.   
         '''
-        This method will contain a dictionary with categories the user will 
-        use to divide who/what to shop for 
-        
-        Args:
-            shopping_list: the dictionary that will add the categories the user 
-            inputs.
-        '''
-        #shopping_list = [] 
+        #categories = [] 
 def main():
     s = ExpenseTracker()    
     s.funds()

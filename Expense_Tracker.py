@@ -7,8 +7,8 @@ class ExpenseTracker:
     Attributes: 
         value(float): the amount to be subtracted from total
         deduction (float): the amount to be subtracted from total 
-        update_amount(float):
-        new_balance(float):        
+        update_amount(float): total balance after dedcted expses
+        new_balance(float):  
           
     '''
     
@@ -16,8 +16,8 @@ class ExpenseTracker:
         '''
         Initializes the user attribute and tuple that will hold data.
         '''
-        self.balance = 0
-        self.deduction = 0
+        self.balance = 0.00
+        self.deduction = 0.00
         
     def funds(self): #Sharon
         '''
@@ -67,17 +67,20 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print("Amount left in your account: "+ str(self.balance))
+        print(f"Amount left in your account: {self.balance}")
         
     def balance_warning(self): #Christian
         '''This method will notify the user with a balance 
         warning (based on what they set as half and minimum funds). 
 	    '''
-    
         if self.deduction <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds. Remaining balance: {self.updated_amount}")
-        if self.balance <= self.deduction / 4:
-            print(f"LOW BALANCE WARNING: You have used 75 percent of your available funds. Remaining balance: {self.updated_amount}")  
+            print(f"WARNING: You have used half of your available funds." 
+                  f"Remaining balance: {self.updated_amount}")
+        elif self.balance <= self.deduction / 4:
+            print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
+                  f"available funds. Remaining balance: {self.updated_amount}")  
+        
+        
         
     def categorize_shopping(self,shopping_list): #Christian
         '''

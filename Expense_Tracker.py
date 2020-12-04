@@ -9,12 +9,12 @@ class ExpenseTracker:
         deduction (float): the amount to be subtracted from total   
     '''
     
-    def __init__(self, balance, deduction): #Chika
+    def __init__(self): #Chika
         '''
         Initializes the user attribute and tuple that will hold data.
         '''
-        self.balance = balance
-        self.deduction = deduction
+        self.balance = 0
+        self.deduction = 0
         
     def funds(self): #Sharon
         '''
@@ -26,7 +26,7 @@ class ExpenseTracker:
         deposit = int(input("Enter amount of funds that you wish to input:"))
         new_balance = self.balance + deposit
         print(f"Amount of funds available {new_balance}")
-        return (new_balance)
+        return new_balance
         
     def subtraction(self): #Chika
         ''' Subtracts the amount of each expense from the total_amount_to_spend
@@ -35,10 +35,12 @@ class ExpenseTracker:
         '''
         #  call stored balance to get remaining balance        
         
-        updated_amount = self.balance - self.deduction
-        if self.deduction > self.balance:
-            print("Not enough availble funds. Please enter new expense: ")        
-        # print(f"You new balance is {updated_amount}")   
+        deduct = int(input("How much would you like to take away?"))
+        if deduct > self.balance:
+            print("Not enough availble funds. Please enter new expense: ")
+        updated_amount = self.balance - deduct
+        print(updated_amount)        
+        # print(f"You new balance is: {updated_amount}")   
         return updated_amount        
     
     def store_balance(self,total_amount): #Ray
@@ -68,11 +70,11 @@ class ExpenseTracker:
         warning (based on what they set as half and minimum funds). 
 	    '''
     
-        if self.balance <= self.deduction / 2:
+        if self.deduction <= self.balance / 2:
             print(f"WARNING: You have used half of your available funds. Remaining balance: {self.balance}")
-        if self.balance <= self.deduction / 4:
+        elif self.balance <= self.deduction / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your available funds. Remaining balance: {self.balance}")  
-    
+        
     def categorize_shopping(self,shopping_list): #Christian
         '''
         This method will contain a dictionary with categories the user will 
@@ -84,9 +86,9 @@ class ExpenseTracker:
         '''
         #shopping_list = [] 
 
-s = ExpenseTracker(0,100)    
+s = ExpenseTracker()    
 s.funds()
 s.subtraction()
-
+s.balance_warning()
         
         

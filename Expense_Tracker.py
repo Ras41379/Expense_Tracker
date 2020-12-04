@@ -5,16 +5,18 @@ class ExpenseTracker:
     '''
     Program that allows users to track expenses. 
     Attributes: 
-        value(float): the amount to be subtracted from total
-        deduction (float): the amount to be subtracted from total 
-        update_amount(float): total balance after dedcted expses
-        new_balance(float):  
+        balance(float): initial available funds.  
+        deduction (float): the amount to be subtracted from balance. 
+        update_amount(float): total balance after deducted expenses.
+        new_balance(float): total balance after funds are deposited.
+        totals (dict): Holds the balance values for the user.
           
+
     '''
     
     def __init__(self): #Chika
         '''
-        Initializes the user attribute and tuple that will hold data.
+        Initializes attributes and dictionary that will hold data.
         '''
         self.balance = 0.00
         self.deduction = 0.00
@@ -33,9 +35,9 @@ class ExpenseTracker:
         
     def subtraction(self): #Chika
         ''' 
-        Subtracts the amount of each expense from the total_amount_to_spend
+        Subtracts the amount of each expense from the new_balance.
         Returns: 
-            Updated amount after subtracting expense.
+            Updated amount after subtracting expense(updated_amount).
         '''        
         while True:
             deduct = int(input("Enter amount spent: "))
@@ -50,15 +52,15 @@ class ExpenseTracker:
     def store_balance(self,total_amount): #Ray
         ''' After user is done, saves the amount_spent to a dictionary
         
-        # Attribute:
-        #     totals (dict): Holds the balance values for the user.
+    # Attribute:
+    #     totals (dict): Holds the balance values for the user.
         
         Side effect:
             Value of the dictionary will change    
         '''  
         
         
-    def print_amount(self): #Sharon
+    def print_amount(self): #Sharon: not yet completed
         """This method will print the amount of funds remaining after using the 
         funds
         

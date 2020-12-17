@@ -40,7 +40,7 @@ class ExpenseTracker:
         # use f string to ask user to input balance 
         #will be used for suctration method
         
-        deposit = int(input("Enter amount of funds that you wish to input:"))
+        deposit = int(input("Enter amount of funds that you wish to input: "))
         self.balance = self.balance + deposit
         print(f"Amount of funds available {self.balance}")
         return self.balance
@@ -90,8 +90,8 @@ class ExpenseTracker:
         print(per)
         it = str(self.item)
         print(it)
-        my_dict = {"total": total, "minus":minus, "money left": money_left, 
-                   "person": per, "items bought": it}
+        my_dict = {"Total: ": total, "Minus: ":minus, "Money left: ": 
+            money_left, "Person: ": per, "Items bought: ": it}
         print(my_dict)
         print(len(my_dict))
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
@@ -104,14 +104,14 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print(f"Amount left in your account: {self.balance}")
+        print(f"Amount left in your account: {self.amount}")
     
     def overdraw_amount(self):
         """ This method will print out message if funds spend are greater
         than amount left in balance """
         if self.balance<0:
             print("Not enough left in balance")
-        print(f"Amount left in your account: {self.balance}")
+        print(f"Amount left in your account: {self.amount}")
         
         
     def balance_warning(self): #Christian
@@ -122,7 +122,7 @@ class ExpenseTracker:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                   f"available funds. Remaining balance: {self.amount}") 
         elif self.amount <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds." 
+            print(f"WARNING: You have used half of your available funds. " 
                   f"Remaining balance: {self.amount}")
         
         

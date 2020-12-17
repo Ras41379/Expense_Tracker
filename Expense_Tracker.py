@@ -21,15 +21,10 @@ class ExpenseTracker:
         Initializes attributes and dictionary that will hold data.
         '''
         self.balance = 0.00
-        print(self.balance)
         self.deduction = 0.00
-        print(self.deduction)
         self.amount = 0.00
-        print(self.amount)
         self.person = " "
-        print(self.person)
         self.item = " "
-        print(self.item)
         
     def funds(self): #Sharon
         '''
@@ -50,9 +45,7 @@ class ExpenseTracker:
         Subtracts the amount of each expense from the new_balance.
         Returns: 
             Updated amount after subtracting expense(updated_amount).
-        '''   
-        print(self.balance)
-        print(self.deduction)     
+        '''        
         while True:
             self.deduction = float(input("Enter amount spent: "))
             self.amount = self.balance - self.deduction      
@@ -80,23 +73,18 @@ class ExpenseTracker:
     
         my_dict = dict() 
         
-        total = float(self.balance)
-        print(total)
-        minus = float(self.deduction)
-        print(self.deduction)
-        money_left = float(self.amount)
-        print(money_left)
         per = str(self.person)
-        print(per)
         it = str(self.item)
-        print(it)
+        total = float(self.balance)
+        minus = float(self.deduction)
+        money_left = float(self.amount)
+        
         my_dict = {"total": total, "minus":minus, "money left": money_left, 
                    "person": per, "items bought": it}
-        print(my_dict)
-        print(len(my_dict))
+    
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
+        
         print(obj)
-        #return obj
         
     def print_amount(self): #Sharon: not yet completed
         """This method will print the amount of funds remaining after using the 
@@ -104,14 +92,14 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print(f"Amount left in your account: {self.balance}")
+        print(f"Amount left in your account: {self.amount}")
     
     def overdraw_amount(self):
         """ This method will print out message if funds spend are greater
         than amount left in balance """
-        if self.balance<0:
+        if self.balance < 0:
             print("Not enough left in balance")
-        print(f"Amount left in your account: {self.balance}")
+        print(f"Amount left in your account: {self.amount}")
         
         
     def balance_warning(self): #Christian
@@ -133,22 +121,22 @@ class ExpenseTracker:
         shopping_list = [] 
         item = []
         number = int(input("Enter 1 to add a name, 0 when done: "))
-        while number == 1:
-            person = str(input("Enter who you are shopping for: "))
-            shopping_list.append(person)
-            print(shopping_list)
-            number = int(input("Enter 1 to add another name, 2 for an item, " + 
-                               "0 when done: "))
-        while number == 2:
-            item1 = str(input("Name of item bought: "))
-            item.append(item1)
-            print(item)
-            number = int(input("Enter 2 to another item, 0 when done: "))
-        else:
-            self.person = shopping_list
-            self.item = item
-            return self.person, self.item
-            
+        while number != 0:
+            if number == 1:
+                person = str(input("Enter who you are shopping for: "))
+                shopping_list.append(person)
+                number = int(input("Enter 1 to add another name, 2 for an item, " + 
+                                   "0 when done: "))
+            elif number == 2:
+                item1 = str(input("Name of item bought: "))
+                item.append(item1)
+                number = int(input("Enter 2 to another item, 0 when done: "))
+            else:
+                print("You entered an invalid number")
+                number = int(input("Enter 1 to add a name, 2 to add an item, or 0 when done: "))
+        self.person = shopping_list
+        self.item = item
+        return self.person, self.item
         
 def main(): #Ray
     s = ExpenseTracker() 

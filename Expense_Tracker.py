@@ -35,7 +35,7 @@ class ExpenseTracker:
         # use f string to ask user to input balance 
         #will be used for suctration method
         
-        deposit = int(input("Enter amount of funds that you wish to input:"))
+        deposit = int(input("Enter amount of funds that you wish to input: "))
         self.balance = self.balance + deposit
         print(f"Amount of funds available {self.balance}")
         return self.balance
@@ -110,7 +110,7 @@ class ExpenseTracker:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                   f"available funds. Remaining balance: {self.amount}") 
         elif self.amount <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds." 
+            print(f"WARNING: You have used half of your available funds. " 
                   f"Remaining balance: {self.amount}")
         
         

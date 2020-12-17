@@ -36,7 +36,7 @@ class ExpenseTracker:
         #will be used for suctration method
         print(self.new_balance)
         print(self.deduction)
-        deposit = int(input("Enter amount of funds that you wish to input:"))
+        deposit = float(input("Enter amount of funds that you wish to input:"))
         self.new_balance = self.new_balance + deposit
         print(f"Amount of funds available {self.new_balance}")
         return self.new_balance
@@ -50,14 +50,15 @@ class ExpenseTracker:
         print(self.new_balance)
         print(self.deduction)      
         while True:
-            deduct = int(input("Enter amount spent: "))
-            self.updated_amount = self.new_balance - deduct      
-            if deduct > self.new_balance:
+            self.deduction = float(input("Enter amount spent: "))
+            self.updated_amount = self.new_balance - self.deduction      
+            if self.deduction > self.new_balance:
                 print("Not enough availble funds. Please enter new expense: ")
                 continue
             else:
                 print(f"Your updated balance is ${self.updated_amount}")
-                return self.deduction, self.updated_amount
+                break
+        return self.deduction, self.updated_amount
                 
     
     def store_balance(self): #Ray #Not completed

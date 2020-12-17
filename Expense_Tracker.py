@@ -88,8 +88,14 @@ class ExpenseTracker:
         print(amount)
         bal = self.amount
         print(bal)
-        my_dict = {"total": float(total), "sub": float(amount), "amount": float(bal)}
+        per = self.person
+        print(self.person)
+        item1 = self.item
+        print(self.item)
+        my_dict = {"name": str(per), "item": str(item1), "total": float(total), 
+                   "sub": float(amount), "amount": float(bal)}
         print(my_dict)
+        print(len(my_dict))
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
         print(obj)
         #return obj

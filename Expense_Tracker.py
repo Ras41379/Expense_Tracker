@@ -1,6 +1,7 @@
 #  Group 312: Chika Chuku, Sharon Lee, Christian Escobar, Ray Swenton
 from argparse import ArgumentParser
 import sys
+import pandas as pd
 
 class ExpenseTracker:
     '''
@@ -63,10 +64,16 @@ class ExpenseTracker:
             Value of the dictionary will change    
         '''  
         
-        total = {}  
-            
-        print(total)
-        return total
+        #working on a way to put the information into a dict and then into a pandas
+        #dataframe for storage and listing when the user is done entered amounts.
+    
+        my_dict = dict() 
+        amount = self.updated_amount
+        bal = self.balance
+        my_dict[len(dict)] = {"total": bal, "amount": float(amount)}
+        pd.DataFrame.from_dict(my_dict, orient = 'index')
+
+        return my_dict
         
     def print_amount(self): #Sharon: not yet completed
         """This method will print the amount of funds remaining after using the 
@@ -81,6 +88,7 @@ class ExpenseTracker:
         warning for half and low available funds. 
 	    '''
         if self.new_balance <= self.deduction / 4:
+            self.new_balance
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                   f"available funds. Remaining balance: {self.updated_amount}") 
         elif self.deduction <= self.new_balance / 2:

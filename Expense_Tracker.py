@@ -20,11 +20,17 @@ class ExpenseTracker:
         '''
         Initializes attributes and dictionary that will hold data.
         '''
-        self.new_balance = 0.00
-        print(self.new_balance)
+        self.balance = 0.00
+        print(self.balance)
         self.deduction = 0.00
         print(self.deduction)
-        self.updated_amount = 0.00
+        self.amount = 0.00
+        print(self.amount)
+        self.person = " "
+        print(self.person)
+        self.item = " "
+        print(self.item)
+        
         
     def funds(self): #Sharon
         '''
@@ -34,12 +40,12 @@ class ExpenseTracker:
         '''                                      
         # use f string to ask user to input balance 
         #will be used for suctration method
-        print(self.new_balance)
+        print(self.balance)
         print(self.deduction)
         deposit = float(input("Enter amount of funds that you wish to input:"))
-        self.new_balance = self.new_balance + deposit
-        print(f"Amount of funds available {self.new_balance}")
-        return self.new_balance
+        self.balance = self.balance + deposit
+        print(f"Amount of funds available {self.balance}")
+        return self.balance
         
     def subtraction(self): #Chika
         ''' 
@@ -47,18 +53,18 @@ class ExpenseTracker:
         Returns: 
             Updated amount after subtracting expense(updated_amount).
         '''  
-        print(self.new_balance)
+        print(self.balance)
         print(self.deduction)      
         while True:
             self.deduction = float(input("Enter amount spent: "))
-            self.updated_amount = self.new_balance - self.deduction      
-            if self.deduction > self.new_balance:
+            self.amount = self.balance - self.deduction      
+            if self.deduction > self.balance:
                 print("Not enough availble funds. Please enter new expense: ")
-                True  
+                continue  
             else:
-                print(f"Your updated balance is ${self.updated_amount}")
-                False
-        return self.deduction, self.updated_amount
+                print(f"Your updated balance is ${self.amount}")
+                break
+        return self.deduction, self.amount
                 
     
     def store_balance(self): #Ray #Not completed
@@ -76,11 +82,11 @@ class ExpenseTracker:
         #dataframe for storage and listing when the user is done entered amounts.
     
         my_dict = dict() 
-        total = self.new_balance
+        total = self.balance
         print(total)
         amount = self.deduction
         print(amount)
-        bal = self.updated_amount
+        bal = self.amount
         print(bal)
         my_dict = {"total": float(total), "sub": float(amount), "amount": float(bal)}
         print(my_dict)
@@ -94,30 +100,52 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print(f"Amount left in your account: {self.new_balance}")
+        print(f"Amount left in your account: {self.balance}")
         
-    def balance_warning(self): #Christian
+    def balance_warning(self): #Christian #done?
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''
-        if self.new_balance <= self.deduction / 4:
-            print(self.new_balance)
-            print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
-                  f"available funds. Remaining balance: {self.updated_amount}") 
-        elif self.deduction <= self.new_balance / 2:
-            print(self.deduction)
-            print(f"WARNING: You have used half of your available funds." 
-                  f"Remaining balance: {self.updated_amount}")
+        if self.amount <= self.balance / 4:
+            print(self.amount)
+            print(self.balance)
+            print(f"LOW BALANCE WARNING: You have used 75 percent of your "
+               f"available funds. Remaining balance: {self.amount}")
+        elif self.amount <= self.balance / 2:
+            print(self.amount)
+            print(self.balance)
+            print(f"WARNING: You have used half of your available funds. "
+              f"Remaining balance: {self.amount}")
         
         
-    def categorize_shopping(self): #Christian #not completed
+    def categorize_shopping(self): #Christian #semi done
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
         '''
         
+        list = []
+        item = []
+        number = int(input("Enter 1 to add a name, 0 when done: "))
+        while number == 1:
+            person = input("Enter who you are shopping for: ")
+            list.append(person)
+            print(list)
+            number = int(input("Enter 1 to add another name, 2 for an item, " +
+            "0 when done: "))
+        while number == 2:
+            item1 = input("Name item bought: ")
+            item.append(item1)
+            print(item)
+            number = int(input("Enter 1 to add another name, 2 for an item, " +
+            "0 when done: "))
+        else:
+            self.person = list
+            self.item = item
+            return self.person, self.item
         
 def main(): #Ray
-    s = ExpenseTracker()    
+    s = ExpenseTracker()
+    s.categorize_shopping()    
     s.funds()
     s.subtraction()
     s.balance_warning()

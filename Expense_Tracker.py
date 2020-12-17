@@ -54,10 +54,10 @@ class ExpenseTracker:
             self.updated_amount = self.new_balance - self.deduction      
             if self.deduction > self.new_balance:
                 print("Not enough availble funds. Please enter new expense: ")
-                continue
+                True  
             else:
                 print(f"Your updated balance is ${self.updated_amount}")
-                break
+                False
         return self.deduction, self.updated_amount
                 
     
@@ -114,7 +114,7 @@ class ExpenseTracker:
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
         '''
-        #shopping_list = [] 
+        
         
 def main(): #Ray
     s = ExpenseTracker()    

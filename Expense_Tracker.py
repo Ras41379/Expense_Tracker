@@ -63,6 +63,10 @@ class ExpenseTracker:
             Value of the dictionary will change    
         '''  
         
+        total = {}  
+            
+        print(total)
+        return total
         
     def print_amount(self): #Sharon: not yet completed
         """This method will print the amount of funds remaining after using the 
@@ -95,6 +99,7 @@ def main(): #Ray
     s.funds()
     s.subtraction()
     s.balance_warning()
+    
 main()
         
         

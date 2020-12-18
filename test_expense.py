@@ -1,4 +1,4 @@
-from Expense_Tracker import subtraction as s
+from Expense_Tracker import ExpenseTracker
 import pytest
 
 
@@ -13,7 +13,7 @@ def test_expense_funds():
     sure that the user is inputting an integer value"""
     while True:
         try: 
-            userInput= int(input(message))
+            input = int(input(message))
         except ValueError:
             print("Not an integer! Please input an int value")
             continue

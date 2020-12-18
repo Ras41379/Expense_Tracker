@@ -95,11 +95,12 @@ class ExpenseTracker:
         print(f"Amount left in your account: {self.amount}")
     
     def overdraw_amount(self):
-        """ This method will print out message if funds spend are greater
-        than amount left in balance """
-        if self.balance < 0:
+        """ This method will print out message if funds spent are greater
+        than amount left in balance ie if the balance is negative """
+        if self.amount < 0:
             print("Not enough left in balance")
         print(f"Amount left in your account: {self.amount}")
+        print(f"Expense tracker of {self.person} with balance of {self.amount}")
         
         
     def balance_warning(self): #Christian
@@ -137,6 +138,7 @@ class ExpenseTracker:
         self.person = shopping_list
         self.item = item
         return self.person, self.item
+
         
 def main(): #Ray
     s = ExpenseTracker() 
@@ -145,7 +147,8 @@ def main(): #Ray
     s.subtraction()
     s.balance_warning()
     s.store_balance()
-    s.print_amount()
+    s.overdraw_amount()
+
     
 main()
         

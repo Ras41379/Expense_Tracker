@@ -40,6 +40,12 @@ def test_balance_warning(capsys):
                           f"Remaining balance: {self.amount}.\n"
     )
 
+def test_categorize_shopping():
+    
+
+
+
+
 def test_overdraw_amount(capsys):
     if self.amount >0:
          print(f"Amount left in your account: ${self.amount}")
@@ -61,4 +67,5 @@ def test_overdraw_amount(capsys):
         
     )
     
+
     

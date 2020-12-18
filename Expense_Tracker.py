@@ -43,8 +43,8 @@ class ExpenseTracker:
             except ValueError:
                 print("please enter int value")
                 continue
-            if not 0<= deposit <= 9:
-                print("number not between zero and nine")
+            if 0 <= deposit:
+                print("Enter a number greater than 0.")
                 continue
             break
         
@@ -57,32 +57,33 @@ class ExpenseTracker:
         sub = "yes"
         sub_amount = []     
         while sub == "yes":
-            if self.deduction == 0.00:
-                self.deduction = float(input("Enter amount spent: "))
-                print(self.deduction)
-                self.amount = self.balance - self.deduction
-                print(self.balance)
-                print(self.amount)
-                sub_amount.append(self.deduction)
-                print(sub_amount)
-            else:
-                self.deduction = float(input("Enter another amount spent: "))
-                self.amount = self.amount - self.deduction
-                print(self.deduction)  
-                print(self.amount)
-                sub_amount.append(self.deduction)
-                print(sub_amount)    
-            if self.amount > self.balance:
-                print("Not enough availble funds. Please enter new expense: ")
-                sub = str(input("do you have another item to deduct, enter yes "
-                                "or no: "))
-            else:
-                print(f"Your updated balance is ${self.amount}")
-                sub = "no"
-            sub = str(input("do you have another item to deduct, enter yes or "
-                            "no: "))
+            try:
+                if self.deduction == 0.00:
+                    self.deduction = float(input("Enter amount spent: "))
+                    self.amount = self.balance - self.deduction
+                    sub_amount.append(self.deduction)    
+                else:
+                    self.deduction = float(input("Enter another amount spent: "))
+                    self.amount = self.amount - self.deduction
+                    sub_amount.append(self.deduction)
+            except ValueError:
+                print("Please type a number greater than 0.")
+                continue
+            try:    
+                if self.amount > self.balance:
+                    self.deduction = int(input("Not enough availble funds. Please enter new expense: "))
+                    sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                else:
+                    print(f"Your updated balance is ${self.amount}")
+                    break
+            except ValueError:
+                print("Please type a number greater than 0.")
+                continue
+            if sub != "yes" or sub != "no":
+                print("Invalid response: Please type yes or no")
+                sub = str(input("Do you have another item to deduct, enter yes or no: "))
+            break
         self.deduction = sub_amount
-        print(self.deduction)
         return self.amount, self.deduction
     
     def store_balance(self): #Ray #Not completed
@@ -111,7 +112,6 @@ class ExpenseTracker:
                    "person": per, "items bought": it}
     
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
-        
         print(obj)
         
     def print_amount(self): #Sharon: not yet completed

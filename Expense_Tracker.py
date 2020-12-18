@@ -163,6 +163,9 @@ class ExpenseTracker:
     def categorize_shopping(self): #Christian #done?
 =======
                   f"available funds. Remaining balance: ${self.amount}") 
+=======
+                  f" available funds. Remaining balance: ${self.amount}") 
+>>>>>>> a511f8953b454b3a58ede719a90ccb1270e56aed
         elif self.amount <= self.balance / 2:
             print(f"WARNING: You have used half of your available funds. " 
                   f"Remaining balance: ${self.amount}")

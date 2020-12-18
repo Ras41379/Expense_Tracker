@@ -145,41 +145,48 @@ class ExpenseTracker:
                   f" balance of ${self.amount}")
         
         
-    def balance_warning(self): #Christian
+    def balance_warning(self): #Christian #done?
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''
-        while True:
-            try:
-                if self.amount <= self.balance / 4:
-                    print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
+        if self.amount <= self.balance / 4:
+            print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                           f"available funds. Remaining balance: {self.amount}") 
-                elif self.amount <= self.balance / 2:
-                    print(f"WARNING: You have used half of your available funds. " 
+        elif self.amount <= self.balance / 2:
+            print(f"WARNING: You have used half of your available funds. " 
                           f"Remaining balance: {self.amount}")
-            except ValueError:
-        
-    def categorize_shopping(self): #Christian #not completed
+    
+    
+    def categorize_shopping(self): #Christian #done?
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
         '''
         shopping_list = [] 
         item = []
         number = int(input("Enter 1 to add a name, 0 when done: "))
-        while number != 0:
-            if number == 1:
-                person = str(input("Enter who you are shopping for: "))
-                shopping_list.append(person)
-                number = int(input("Enter 1 to add another name, 2 for an item, " + 
-                                   "0 when done: "))
-            elif number == 2:
-                item1 = str(input("Name of item bought: "))
-                item.append(item1)
-                number = int(input("Enter 2 to another item, 0 when done: "))
-            else:
+        while True:
+            try:
+                while number != 0:
+                    if number == 1:
+                        person = str(input("Enter who you are shopping for: "))
+                        shopping_list.append(person)
+                        number = int(input("Enter 1 to add another name, 2 for an item, " + 
+                                        "0 when done: "))
+                    elif number == 2:
+                        item1 = str(input("Name of item bought: "))
+                        item.append(item1)
+                        number = int(input("Enter 2 to another item, 0 when done: "))
+                    else:
+                        print("You entered an invalid number")
+                        number = int(input("Enter 1 to add a name, 2 to add an item, "
+                                        "or 0 when done: "))
+            except ValueError:
+                print("Not an integer value")
+                continue
+            if not 0 <= number <= 2:
                 print("You entered an invalid number")
-                number = int(input("Enter 1 to add a name, 2 to add an item, "
-                                   "or 0 when done: "))
+                continue
+            break
         self.person = shopping_list
         self.item = item
         return self.person, self.item
@@ -197,4 +204,4 @@ def main(): #Ray
     
 main()
         
-        
+      

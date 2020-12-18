@@ -185,20 +185,7 @@ class ExpenseTracker:
                 print("Not an integer value")
                 continue
             if not 0 <= number <= 2:
-        number = int(input("Enter 1 to add a name, 2 for an item, and 0 when done: "))
-        while number != 0:
-            if number == 1:
-                person = str(input("Enter who you are shopping for: "))
-                shopping_list.append(person)
-                number = int(input("Enter 1 to add another name, 2 for an item, " + 
-                                   "0 when done: "))
-            elif number == 2:
-                item1 = str(input("Name of item bought: "))
-                item.append(item1)
-                number = int(input("Enter 2 to another item, 0 when done: "))
-            else:
-                print("You entered an invalid number")
-                continue
+                number = int(input("Enter 1 to add a name, 2 for an item, and 0 when done: "))
             break
         self.person = shopping_list
         self.item = item

@@ -15,7 +15,7 @@ def test_expense_funds(capsys):
     sure that the user is inputting an integer value"""
     with mock.patch("builtin.input",
                     side_effects = ["one, -1, 1"]):
-        x=funds(self)
+        x = funds(self)
         assert x== "Amount of funds available 1"
         captured = capsys.readouterr()
         assert captured.out == (

@@ -135,8 +135,9 @@ class ExpenseTracker:
             print("Not enough left in balance")
         else:
             print(f"Amount left in your account: ${self.amount}")
+        
         if len(self.person) == 0:
-            print("Don't know who it was bought for.")    
+            print(f"Don't know who it was bought for at ${self.amount}.")    
         elif len(self.person) == 1:
             print(f"Expense tracker of {self.person[0]} with balance of " 
                   f"${self.amount}")
@@ -184,6 +185,18 @@ class ExpenseTracker:
                 print("Not an integer value")
                 continue
             if not 0 <= number <= 2:
+        number = int(input("Enter 1 to add a name, 2 for an item, and 0 when done: "))
+        while number != 0:
+            if number == 1:
+                person = str(input("Enter who you are shopping for: "))
+                shopping_list.append(person)
+                number = int(input("Enter 1 to add another name, 2 for an item, " + 
+                                   "0 when done: "))
+            elif number == 2:
+                item1 = str(input("Name of item bought: "))
+                item.append(item1)
+                number = int(input("Enter 2 to another item, 0 when done: "))
+            else:
                 print("You entered an invalid number")
                 continue
             break
@@ -198,9 +211,8 @@ def main(): #Ray
     s.funds()
     s.subtraction()
     s.balance_warning()
-    s.store_balance()
     s.overdraw_amount()
-
+    s.store_balance()
     
 main()
         

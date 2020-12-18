@@ -112,15 +112,20 @@ class ExpenseTracker:
         Side effect:
             print statement
         """
-        print(f"Amount left in your account: {self.amount}")
+        print(f"Amount left in your account: ${self.amount}")
     
     def overdraw_amount(self):
         """ This method will print out message if funds spent are greater
         than amount left in balance ie if the balance is negative """
         if self.amount < 0:
             print("Not enough left in balance")
-        print(f"Amount left in your account: {self.amount}")
-        print(f"Expense tracker of {self.person} with balance of {self.amount}")
+        print(f"Amount left in your account: ${self.amount}")
+        if len(self.person) == 1:
+            print(f"Expense tracker of {self.person[0]} with balance of " 
+                  f"${self.amount}")
+        else:
+            print(f"Expense tracker of {self.person[0]} & {self.person[1]} with" 
+                  f" balance of ${self.amount}")
         
         
     def balance_warning(self): #Christian

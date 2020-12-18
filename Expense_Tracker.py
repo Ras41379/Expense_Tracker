@@ -45,16 +45,36 @@ class ExpenseTracker:
         Subtracts the amount of each expense from the new_balance.
         Returns: 
             Updated amount after subtracting expense(updated_amount).
-        '''        
-        while True:
-            self.deduction = float(input("Enter amount spent: "))
-            self.amount = self.balance - self.deduction      
+        '''  
+        sub = "yes"
+        sub_amount = []     
+        while sub == "yes":
+            if self.deduction == 0.00:
+                self.deduction = float(input("Enter amount spent: "))
+                print(self.deduction)
+                self.amount = self.balance - self.deduction
+                print(self.balance)
+                print(self.amount)
+                sub_amount.append(self.deduction)
+                print(sub_amount)
+            else:
+                self.deduction = float(input("Enter another amount spent: "))
+                self.amount = self.amount - self.deduction
+                print(self.deduction)  
+                print(self.amount)
+                sub_amount.append(self.deduction)
+                print(sub_amount)    
             if self.amount > self.balance:
                 print("Not enough availble funds. Please enter new expense: ")
-                continue
+                sub = str(input("do you have another item to deduct, enter yes "
+                                "or no: "))
             else:
                 print(f"Your updated balance is ${self.amount}")
-                break
+                sub = "no"
+            sub = str(input("do you have another item to deduct, enter yes or "
+                            "no: "))
+        self.deduction = sub_amount
+        print(self.deduction)
         return self.amount, self.deduction
     
     def store_balance(self): #Ray #Not completed
@@ -73,11 +93,11 @@ class ExpenseTracker:
     
         my_dict = dict() 
         
-        per = str(self.person)
-        it = str(self.item)
-        total = float(self.balance)
-        minus = float(self.deduction)
-        money_left = float(self.amount)
+        per = self.person
+        it = self.item
+        total = self.balance
+        minus = sum(self.deduction)
+        money_left = self.amount
         
         my_dict = {"total": total, "minus":minus, "money left": money_left, 
                    "person": per, "items bought": it}
@@ -107,6 +127,7 @@ class ExpenseTracker:
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''
+        
         if self.amount <= self.balance / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
                   f"available funds. Remaining balance: {self.amount}") 
@@ -134,7 +155,8 @@ class ExpenseTracker:
                 number = int(input("Enter 2 to another item, 0 when done: "))
             else:
                 print("You entered an invalid number")
-                number = int(input("Enter 1 to add a name, 2 to add an item, or 0 when done: "))
+                number = int(input("Enter 1 to add a name, 2 to add an item, "
+                                   "or 0 when done: "))
         self.person = shopping_list
         self.item = item
         return self.person, self.item

@@ -114,13 +114,6 @@ class ExpenseTracker:
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
         print(obj)
         
-    def print_amount(self): #Sharon: not yet completed
-        """This method will print the amount of funds remaining after using the 
-        funds
-        Side effect:
-            print statement
-        """
-        print(f"Amount left in your account: ${self.amount}")
     
     def overdraw_amount(self):
         """ This method will print out message if funds spent are greater
@@ -131,6 +124,7 @@ class ExpenseTracker:
         if len(self.person) == 1:
             print(f"Expense tracker of {self.person[0]} with balance of " 
                   f"${self.amount}")
+       
         else:
             print(f"Expense tracker of {self.person[0]} & {self.person[1]} with" 
                   f" balance of ${self.amount}")

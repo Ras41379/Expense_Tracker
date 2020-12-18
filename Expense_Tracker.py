@@ -36,12 +36,12 @@ class ExpenseTracker:
         #will be used for suctration method
         while True:
             try:
-                deposit = int(input("Enter amount of funds that you wish to input: "))
+                deposit = int(input("Enter amount of funds that you wish to input: $"))
                 self.balance = self.balance + deposit
-                print(f"Amount of funds available {self.balance}")
+                print(f"Amount of funds available: ${self.balance}")
                 return self.balance
             except ValueError:
-                print("please enter int value")
+                print("Please enter int value")
                 continue
             if 0 >= deposit:
                 print("Enter a number greater than 0.")
@@ -54,18 +54,18 @@ class ExpenseTracker:
         Returns: 
             Updated amount after subtracting expense(updated_amount).
         '''  
-        sub = "yes"
+        sub = "Yes"
         sub_amount = []     
-        while sub == "yes":
+        while sub == "Yes":
             try:
                 if self.deduction == 0.00:
-                    self.deduction = float(input("Enter amount spent: "))
+                    self.deduction = float(input("Enter amount spent: $"))
                     self.amount = self.balance - self.deduction
                     sub_amount.append(self.deduction)
                     sub = str(input("Do you have another item to deduct, enter yes or no: "))
                     continue  
                 else:
-                    self.deduction = float(input("Enter another amount spent: "))
+                    self.deduction = float(input("Enter another amount spent: $"))
                     self.amount = self.amount - self.deduction
                     sub_amount.append(self.deduction)
                     sub = str(input("Do you have another item to deduct, enter yes or no: "))
@@ -88,6 +88,12 @@ class ExpenseTracker:
             except ValueError:
                 print("Please type a number greater than 0.")
                 continue
+<<<<<<< HEAD
+=======
+            if sub != "Yes" or sub != "No":
+                print("Invalid response: Please type yes or no")
+                sub = str(input("Do you have another item to deduct, enter yes or no: "))
+>>>>>>> 9cf61ca9440b738c433f708aa669c454f803de20
             break
         self.deduction = sub_amount
         return self.amount, self.deduction
@@ -114,8 +120,8 @@ class ExpenseTracker:
         minus = sum(self.deduction)
         money_left = self.amount
         
-        my_dict = {"total": total, "minus":minus, "money left": money_left, 
-                   "person": per, "items bought": it}
+        my_dict = {"Total": total, "Minus":minus, "Money left": money_left, 
+                   "Person": per, "Items bought": it}
     
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
         print(obj)
@@ -146,6 +152,7 @@ class ExpenseTracker:
 	    '''
         if self.amount <= self.balance / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
+<<<<<<< HEAD
                           f"available funds. Remaining balance: {self.amount}") 
         elif self.amount <= self.balance / 2:
             print(f"WARNING: You have used half of your available funds. " 
@@ -153,6 +160,15 @@ class ExpenseTracker:
     
     
     def categorize_shopping(self): #Christian #done?
+=======
+                  f"available funds. Remaining balance: ${self.amount}") 
+        elif self.amount <= self.balance / 2:
+            print(f"WARNING: You have used half of your available funds. " 
+                  f"Remaining balance: ${self.amount}")
+        
+        
+    def categorize_shopping(self): #Christian #almost done?
+>>>>>>> 9cf61ca9440b738c433f708aa669c454f803de20
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
         '''

@@ -29,3 +29,24 @@ def test_subtractions():
     assert s (1000,200)== 800
     assert s (700,500) == 200
     
+    
+    
+def test_categorize_shopping():
+    """ Will test the categorize_shopping method of the ExpenseTracker class
+    & ensure that the user is entering proper credentials for who/what to 
+    shop for.
+    """
+    while True:
+        try:
+            num = ()
+            if not 0 <= num <= 2:
+                print("You entered an invalid number. Try again. ")
+                continue
+        except ValueError:
+            print("Not a proper int value")
+    
+    assert ExpenseTracker == self.person
+    assert ExpenseTracker == self.item
+   
+    
+    

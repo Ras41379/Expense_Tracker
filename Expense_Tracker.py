@@ -43,7 +43,7 @@ class ExpenseTracker:
             except ValueError:
                 print("please enter int value")
                 continue
-            if 0 <= deposit:
+            if 0 >= deposit:
                 print("Enter a number greater than 0.")
                 continue
             break
@@ -61,24 +61,25 @@ class ExpenseTracker:
                 if self.deduction == 0.00:
                     self.deduction = float(input("Enter amount spent: "))
                     self.amount = self.balance - self.deduction
-                    sub_amount.append(self.deduction)    
+                    sub_amount.append(self.deduction)
+                    sub = "yes"   
                 else:
                     self.deduction = float(input("Enter another amount spent: "))
                     self.amount = self.amount - self.deduction
                     sub_amount.append(self.deduction)
+                    sub = "yes"
             except ValueError:
-                print("Please type a number greater than 0.")
-                continue
+                print("You didn't enter a number for the amount spent!")
             try:    
                 if self.amount > self.balance:
                     self.deduction = int(input("Not enough availble funds. Please enter new expense: "))
                     sub = str(input("Do you have another item to deduct, enter yes or no: "))
                 else:
                     print(f"Your updated balance is ${self.amount}")
-                    break
+                break
             except ValueError:
                 print("Please type a number greater than 0.")
-                continue
+                sub = "yes"
             if sub != "yes" or sub != "no":
                 print("Invalid response: Please type yes or no")
                 sub = str(input("Do you have another item to deduct, enter yes or no: "))

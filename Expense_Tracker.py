@@ -137,7 +137,7 @@ class ExpenseTracker:
         
         if self.amount <= self.balance / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
-                  f"available funds. Remaining balance: ${self.amount}") 
+                  f" available funds. Remaining balance: ${self.amount}") 
         elif self.amount <= self.balance / 2:
             print(f"WARNING: You have used half of your available funds. " 
                   f"Remaining balance: ${self.amount}")

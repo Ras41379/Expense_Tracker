@@ -135,8 +135,9 @@ class ExpenseTracker:
             print("Not enough left in balance")
         else:
             print(f"Amount left in your account: ${self.amount}")
+        
         if len(self.person) == 0:
-            print("Don't know who it was bought for.")    
+            print(f"Don't know who it was bought for at ${self.amount}.")    
         elif len(self.person) == 1:
             print(f"Expense tracker of {self.person[0]} with balance of " 
                   f"${self.amount}")
@@ -149,15 +150,14 @@ class ExpenseTracker:
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''
-        while True:
-            try:
-                if self.amount <= self.balance / 4:
-                    print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
-                          f"available funds. Remaining balance: {self.amount}") 
-                elif self.amount <= self.balance / 2:
-                    print(f"WARNING: You have used half of your available funds. " 
-                          f"Remaining balance: {self.amount}")
-            except ValueError:
+        
+        if self.amount <= self.balance / 4:
+            print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
+                  f"available funds. Remaining balance: {self.amount}") 
+        elif self.amount <= self.balance / 2:
+            print(f"WARNING: You have used half of your available funds. " 
+                  f"Remaining balance: {self.amount}")
+        
         
     def categorize_shopping(self): #Christian #not completed
         '''This method will contain a dictionary with categories the user will 
@@ -165,7 +165,7 @@ class ExpenseTracker:
         '''
         shopping_list = [] 
         item = []
-        number = int(input("Enter 1 to add a name, 0 when done: "))
+        number = int(input("Enter 1 to add a name, 2 for an item, and 0 when done: "))
         while number != 0:
             if number == 1:
                 person = str(input("Enter who you are shopping for: "))
@@ -191,9 +191,8 @@ def main(): #Ray
     s.funds()
     s.subtraction()
     s.balance_warning()
-    s.store_balance()
     s.overdraw_amount()
-
+    s.store_balance()
     
 main()
         

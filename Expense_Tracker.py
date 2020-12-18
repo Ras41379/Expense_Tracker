@@ -34,11 +34,19 @@ class ExpenseTracker:
         '''                                      
         # use f string to ask user to input balance 
         #will be used for suctration method
-        
-        deposit = int(input("Enter amount of funds that you wish to input: "))
-        self.balance = self.balance + deposit
-        print(f"Amount of funds available {self.balance}")
-        return self.balance
+        while True:
+            try:
+                deposit = int(input("Enter amount of funds that you wish to input: "))
+                self.balance = self.balance + deposit
+                print(f"Amount of funds available {self.balance}")
+                return self.balance
+            except ValueError:
+                print("please enter int value")
+                continue
+            if not 0<= deposit <= 9:
+                print("number not between zero and nine")
+                continue
+            break
         
     def subtraction(self): #Chika
         ''' 

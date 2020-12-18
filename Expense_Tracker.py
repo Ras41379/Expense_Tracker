@@ -88,12 +88,9 @@ class ExpenseTracker:
             except ValueError:
                 print("Please type a number greater than 0.")
                 continue
-<<<<<<< HEAD
-=======
             if sub != "Yes" or sub != "No":
                 print("Invalid response: Please type yes or no")
                 sub = str(input("Do you have another item to deduct, enter yes or no: "))
->>>>>>> 9cf61ca9440b738c433f708aa669c454f803de20
             break
         self.deduction = sub_amount
         return self.amount, self.deduction
@@ -152,27 +149,13 @@ class ExpenseTracker:
 	    '''
         if self.amount <= self.balance / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
-<<<<<<< HEAD
-<<<<<<< HEAD
                           f"available funds. Remaining balance: {self.amount}") 
         elif self.amount <= self.balance / 2:
             print(f"WARNING: You have used half of your available funds. " 
                           f"Remaining balance: {self.amount}")
-    
-    
-    def categorize_shopping(self): #Christian #done?
-=======
-                  f"available funds. Remaining balance: ${self.amount}") 
-=======
-                  f" available funds. Remaining balance: ${self.amount}") 
->>>>>>> a511f8953b454b3a58ede719a90ccb1270e56aed
-        elif self.amount <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds. " 
-                  f"Remaining balance: ${self.amount}")
         
         
     def categorize_shopping(self): #Christian #almost done?
->>>>>>> 9cf61ca9440b738c433f708aa669c454f803de20
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
         '''

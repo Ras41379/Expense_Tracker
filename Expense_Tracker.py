@@ -62,27 +62,32 @@ class ExpenseTracker:
                     self.deduction = float(input("Enter amount spent: "))
                     self.amount = self.balance - self.deduction
                     sub_amount.append(self.deduction)
-                    sub = "yes"   
+                    sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                    continue  
                 else:
                     self.deduction = float(input("Enter another amount spent: "))
                     self.amount = self.amount - self.deduction
                     sub_amount.append(self.deduction)
-                    sub = "yes"
+                    sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                    continue
             except ValueError:
                 print("You didn't enter a number for the amount spent!")
-            try:    
-                if self.amount > self.balance:
-                    self.deduction = int(input("Not enough availble funds. Please enter new expense: "))
-                    sub = str(input("Do you have another item to deduct, enter yes or no: "))
-                else:
-                    print(f"Your updated balance is ${self.amount}")
-                break
-            except ValueError:
-                print("Please type a number greater than 0.")
                 sub = "yes"
             if sub != "yes" or sub != "no":
                 print("Invalid response: Please type yes or no")
                 sub = str(input("Do you have another item to deduct, enter yes or no: "))
+            break
+        while True:
+            try:    
+                if self.amount >= self.balance:
+                    self.deduction = int(input("Not enough availble funds. Please enter new expense: "))
+                    continue
+                else:
+                    print(f"Your updated balance is ${self.amount}")
+                    break
+            except ValueError:
+                print("Please type a number greater than 0.")
+                continue
             break
         self.deduction = sub_amount
         return self.amount, self.deduction
@@ -128,8 +133,11 @@ class ExpenseTracker:
         than amount left in balance ie if the balance is negative """
         if self.amount < 0:
             print("Not enough left in balance")
-        print(f"Amount left in your account: ${self.amount}")
-        if len(self.person) == 1:
+        else:
+            print(f"Amount left in your account: ${self.amount}")
+        if len(self.person) == 0:
+            print("Don't know who it was bought for.")    
+        elif len(self.person) == 1:
             print(f"Expense tracker of {self.person[0]} with balance of " 
                   f"${self.amount}")
         else:
@@ -141,14 +149,15 @@ class ExpenseTracker:
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''
-        
-        if self.amount <= self.balance / 4:
-            print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
-                  f"available funds. Remaining balance: {self.amount}") 
-        elif self.amount <= self.balance / 2:
-            print(f"WARNING: You have used half of your available funds. " 
-                  f"Remaining balance: {self.amount}")
-        
+        while True:
+            try:
+                if self.amount <= self.balance / 4:
+                    print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
+                          f"available funds. Remaining balance: {self.amount}") 
+                elif self.amount <= self.balance / 2:
+                    print(f"WARNING: You have used half of your available funds. " 
+                          f"Remaining balance: {self.amount}")
+            except ValueError:
         
     def categorize_shopping(self): #Christian #not completed
         '''This method will contain a dictionary with categories the user will 

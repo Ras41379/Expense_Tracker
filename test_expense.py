@@ -30,17 +30,35 @@ def test_subtractions():
     assert s (1000,200)== 800
     assert s (700,500) == 200
 
-def test_balance_warning(expected):
+def test_balance_warning(capsys):
     assert balance_warning() == expected
+    captured = capsys.readouterr()
+    assert captured.out == (
+        f"LOW BALANCE WARNING: You have used 75 percent of your" 
+                          f"available funds. Remaining balance: {self.amount}.\n"
+        f"WARNING: You have used half of your available funds. " 
+                          f"Remaining balance: {self.amount}.\n"
+    )
 
-def test_overdraw_amount():
+def test_overdraw_amount(capsys):
     if self.amount >0:
          print(f"Amount left in your account: ${self.amount}")
-    elif self.amount =0:
+    elif self.amount ==0:
         print("Zero balance")
         print(f"Amount left in your account: ${self.amount}"))
     elif self.amount<0:
         print("Not enough left in balance")
         print(f"Amount left in your account: ${self.amount}")
+    captured = capsys.readouterr()
+    assert captured.out == (
+        "Not enough left in balance.\n"
+        f"Amount left in your account: ${self.amount}.\n"
+        f"Don't know who it was bought for at ${self.amount}.\n"
+        f"Expense tracker of {self.person[0]} with balance of " 
+                  f"${self.amount}.\n"
+        f"Expense tracker of {self.person[0]} & {self.person[1]} with" 
+                  f" balance of ${self.amount}.\n"
+        
+    )
     
     

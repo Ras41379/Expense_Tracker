@@ -23,9 +23,12 @@ def test_expense_funds(capsys):
             "please enter int value.\n"
             "Enter a number greater than 0.\n"
         )
-def test_subtractions():
+def test_subtraction():
     """ Test the subtractions() method of the ExpenseTracker class and 
     makes sure that the ouput is calculated correctly"""
+    with mock.patch("builtin.input", side_effect = 
+                    [500, "yes", 30, "yes", "fifty", 0, "five",  ]):
+        assert subtraction() = 
     assert s (500,100)== 400
     assert s (1000,200)== 800
     assert s (700,500) == 200
@@ -50,6 +53,11 @@ def test_categorize_shopping():
             "Enter 1 to add a name, 2 for an item, and 0 when done: \n"
                     )
     
+    assert ExpenseTracker == self.person
+    assert ExpenseTracker == self.item
+  
+    # with mock.patch("builtin.input", side_effect = 
+    #                 [1, "myself", 2, "clothes", 5, 0, "five" ]): 
     
 
 

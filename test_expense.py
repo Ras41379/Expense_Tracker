@@ -41,6 +41,15 @@ def test_balance_warning(capsys):
     )
 
 def test_categorize_shopping():
+    with mock.patch("builtin.input",
+                    side_effects = ["Bob", "one", "3"]):
+        captured = capsys.readouterr()
+        assert captured.out == (
+            "Bob\n"
+            "Not an integer value\n"
+            "Enter 1 to add a name, 2 for an item, and 0 when done: \n"
+                    )
+    
     
 
 

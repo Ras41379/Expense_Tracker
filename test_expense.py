@@ -41,7 +41,8 @@ def test_balance_warning(capsys):
     )
 
 def test_categorize_shopping():
-    
+    with mock.patch("builtins.input", side_effect = ["person", "item", "item", 
+        "person"])
 
 
 

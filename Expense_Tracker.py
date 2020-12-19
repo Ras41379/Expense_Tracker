@@ -93,7 +93,7 @@ class ExpenseTracker:
         self.deduction = sub_amount
         return self.amount, self.deduction
     
-    def store_balance(self): #Ray #Not completed
+    def store_balance(self): #Ray 
         ''' After user is done, saves the amount_spent to a dictionary
         (Used with catorgize_shopping method to build the dictionary)
         
@@ -118,7 +118,7 @@ class ExpenseTracker:
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
         print(obj)
         
-    def overdraw_amount(self):
+    def overdraw_amount(self): #Sharon
         """ This method will print out message if funds spent are greater
         than amount left in balance ie if the balance is negative """
         if self.amount < 0:
@@ -136,7 +136,7 @@ class ExpenseTracker:
                   f" balance of ${self.amount}")
         
         
-    def balance_warning(self): #Christian #done?
+    def balance_warning(self): #Christian 
         '''This method will notify the user with a balance 
         warning for half and low available funds. 
 	    '''

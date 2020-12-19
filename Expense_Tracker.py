@@ -131,7 +131,6 @@ class ExpenseTracker:
         elif len(self.person) == 1:
             print(f"Expense tracker of {self.person[0]} with balance of " 
                   f"${self.amount}")
-       
         else:
             print(f"Expense tracker of {self.person[0]} & {self.person[1]} with" 
                   f" balance of ${self.amount}")
@@ -149,7 +148,7 @@ class ExpenseTracker:
                           f"Remaining balance: {self.amount}")
         
         
-    def categorize_shopping(self): #Christian #almost done?
+    def categorize_shopping(self): #Christian 
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
         '''
@@ -168,10 +167,6 @@ class ExpenseTracker:
                         item1 = str(input("Name of item bought: "))
                         item.append(item1)
                         number = int(input("Enter 2 to another item, 0 when done: "))
-                    else:
-                        print("You entered an invalid number")
-                        number = int(input("Enter 1 to add a name, 2 to add an item, "
-                                        "or 0 when done: "))
             except ValueError:
                 print("Not an integer value")
                 continue
@@ -192,6 +187,7 @@ def main(): #Ray
     s.overdraw_amount()
     s.store_balance()
     
-main()
+if __name__ == "__main__":
+    main()
         
       

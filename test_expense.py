@@ -26,7 +26,7 @@ def test_subtraction():
 
 def test_balance_warning(self,capsys):
     ET = ExpenseTracker()
-    assert ET.balance_warning()
+    assert ET.balance_warning() == []
     captured = capsys.readouterr()
     assert captured.out == (
         f"LOW BALANCE WARNING: You have used 75 percent of your" 
@@ -52,16 +52,8 @@ def test_categorize_shopping(capsys):
     
 
 def test_overdraw_amount(self,capsys):
-    if self.amount > 0:
-         print(f"Amount left in your account: ${self.amount}")
-    elif self.amount == 0:
-        print("Zero balance")
-        print(f"Amount left in your account: ${self.amount}")
-    elif self.amount < 0:
-        print("Not enough left in balance")
-        print(f"Amount left in your account: ${self.amount}")
     ET = ExpenseTracker()
-    assert ET.overdraw_amount() == f"Amount left in your account: ${self.amount}."
+    assert ET.overdraw_amount()  
     captured = capsys.readouterr()
     assert captured.out == (
         "Not enough left in balance.\n"

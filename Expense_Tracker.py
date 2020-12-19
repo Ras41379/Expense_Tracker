@@ -12,8 +12,6 @@ class ExpenseTracker:
         update_amount(float): total balance after deducted expenses.
         new_balance(float): total balance after funds are deposited.
         totals (dict): Holds the balance values for the user.
-      
-
     '''
     
     def __init__(self): #Chika
@@ -105,9 +103,6 @@ class ExpenseTracker:
         Side effect:
             Value of the dictionary will change    
         '''  
-        
-        #working on a way to put the information into a dict and then into a pandas
-        #dataframe for storage and listing when the user is done entered amounts.
     
         my_dict = dict() 
         
@@ -123,7 +118,6 @@ class ExpenseTracker:
         obj = pd.DataFrame.from_dict(my_dict, orient = 'index')
         print(obj)
         
-    
     def overdraw_amount(self):
         """ This method will print out message if funds spent are greater
         than amount left in balance ie if the balance is negative """

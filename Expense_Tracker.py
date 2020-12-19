@@ -155,7 +155,7 @@ class ExpenseTracker:
         '''
         shopping_list = [] 
         item = []
-        number = int(input("Enter 1 to add a name, 0 when done: "))
+        number = int(input("Enter 1 to add a name, 2 for an item, 0 when done: "))
         while True:
             try:
                 while number != 0:

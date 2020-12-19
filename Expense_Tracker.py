@@ -31,10 +31,11 @@ class ExpenseTracker:
             Updated amount/new balance after user inputs desired funds
         '''                                      
         # use f string to ask user to input balance 
-        #will be used for suctration method
+        #will be used for subtraction method
         while True:
             try:
-                deposit = int(input("Enter amount of funds that you wish to input: $"))
+                deposit = int(input("Enter amount of funds that you wish" 
+                                    " to input: $"))
                 self.balance = self.balance + deposit
                 print(f"Amount of funds available: ${self.balance}")
                 return self.balance
@@ -59,7 +60,8 @@ class ExpenseTracker:
                     self.deduction = float(input("Enter amount spent: $"))
                     self.amount = self.balance - self.deduction
                     sub_amount.append(self.deduction)
-                    sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                    sub = str(input("Do you have another item to deduct, enter" 
+                                    " yes or no: "))
                     if sub == "yes":
                         True
                         continue
@@ -67,10 +69,12 @@ class ExpenseTracker:
                         False
                         break 
                 else:
-                    self.deduction = float(input("Enter another amount spent: $"))
+                    self.deduction = float(input("Enter another amount" 
+                                                 " spent: $"))
                     self.amount = self.amount - self.deduction
                     sub_amount.append(self.deduction)
-                    sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                    sub = str(input("Do you have another item to deduct, enter" 
+                                    " yes or no: "))
                     if sub == "yes":
                         True
                         continue
@@ -82,12 +86,14 @@ class ExpenseTracker:
                 sub = "yes"
             if sub != "yes" or sub != "no":
                 print("Invalid response: Please type yes or no")
-                sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                sub = str(input("Do you have another item to deduct, enter" 
+                                " yes or no: "))
             break
         while True:
             try:    
                 if self.amount >= self.balance:
-                    self.deduction = int(input("Not enough availble funds. Please enter new expense: "))
+                    self.deduction = int(input("Not enough availble funds." 
+                                               "Please enter new expense: "))
                     continue
                 else:
                     print(f"Your updated balance is ${self.amount}")
@@ -97,7 +103,8 @@ class ExpenseTracker:
                 continue
             if sub != "Yes" or sub != "No":
                 print("Invalid response: Please type yes or no")
-                sub = str(input("Do you have another item to deduct, enter yes or no: "))
+                sub = str(input("Do you have another item to deduct, enter" 
+                                " yes or no: "))
             break
         self.deduction = sub_amount
         return self.amount, self.deduction
@@ -151,10 +158,10 @@ class ExpenseTracker:
 	    '''
         if self.amount <= self.balance / 4:
             print(f"LOW BALANCE WARNING: You have used 75 percent of your" 
-                          f"available funds. Remaining balance: {self.amount}") 
+                          f"available funds. Remaining balance: ${self.amount}") 
         elif self.amount <= self.balance / 2:
             print(f"WARNING: You have used half of your available funds. " 
-                          f"Remaining balance: {self.amount}")
+                          f"Remaining balance: ${self.amount}")
         
         
     def categorize_shopping(self): #Christian 
@@ -163,26 +170,31 @@ class ExpenseTracker:
         '''
         shopping_list = [] 
         item = []
-        number = int(input("Enter 1 to add a name, 2 for an item, 0 when done: "))
+        number = int(input("Enter 1 to add a name, 2 for an item, 0 when" 
+                           " done: "))
         while True:
             try:
                 while number != 0:
                     if number == 1:
                         person = str(input("Enter who you are shopping for: "))
                         shopping_list.append(person)
-                        number = int(input("Enter 1 to add another name, 2 for an item, " + 
+                        number = int(input("Enter 1 to add another name, 2 for" 
+                                           " an item, " + 
                                         "0 when done: "))
                     elif number == 2:
                         item1 = str(input("Name of item bought: "))
                         item.append(item1)
-                        number = int(input("Enter 2 to another item, 0 when done: "))
+                        number = int(input("Enter 2 to add another item, 0 when" 
+                                           " done: "))
                     else:
-                        number = int(input("Invalid number: Please enter 1 for a person, 2 for an item, 0 when done: "))
+                        number = int(input("Invalid number: Please enter 1 for" 
+                                    " a person, 2 for an item, 0 when done: "))
             except ValueError:
                 print("Not an integer value")
                 continue
             if not 0 <= number <= 2:
-                number = int(input("Enter 1 to add a name, 2 for an item, and 0 when done: "))
+                number = int(input("Enter 1 to add a name, 2 for an item, and" 
+                                   "0 when done: "))
             break
         self.person = shopping_list
         self.item = item

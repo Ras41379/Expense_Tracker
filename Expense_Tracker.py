@@ -176,6 +176,8 @@ class ExpenseTracker:
                         item1 = str(input("Name of item bought: "))
                         item.append(item1)
                         number = int(input("Enter 2 to another item, 0 when done: "))
+                    else:
+                        number = int(input("Invalid number: Please enter 1 for a person, 2 for an item, 0 when done: "))
             except ValueError:
                 print("Not an integer value")
                 continue

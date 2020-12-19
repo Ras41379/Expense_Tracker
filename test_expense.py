@@ -24,7 +24,7 @@ def test_subtraction():
         assert (1000,200) == 800
         assert (700,500) == 200
 
-def test_balance_warning(self,capsys):
+def test_balance_warning(capsys):
     ET = ExpenseTracker()
     assert ET.balance_warning() == []
     captured = capsys.readouterr()
@@ -51,7 +51,7 @@ def test_categorize_shopping(capsys):
         )
     
 
-def test_overdraw_amount(self,capsys):
+def test_overdraw_amount(capsys):
     ET = ExpenseTracker()
     assert ET.overdraw_amount()  
     captured = capsys.readouterr()

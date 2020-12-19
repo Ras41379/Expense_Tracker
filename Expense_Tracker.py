@@ -52,22 +52,31 @@ class ExpenseTracker:
         Returns: 
             Updated amount after subtracting expense(updated_amount).
         '''  
-        sub = "Yes"
         sub_amount = []     
-        while sub == "Yes":
+        while True:
             try:
                 if self.deduction == 0.00:
                     self.deduction = float(input("Enter amount spent: $"))
                     self.amount = self.balance - self.deduction
                     sub_amount.append(self.deduction)
                     sub = str(input("Do you have another item to deduct, enter yes or no: "))
-                    continue  
+                    if sub == "yes":
+                        True
+                        continue
+                    elif sub == "no":
+                        False
+                        break 
                 else:
                     self.deduction = float(input("Enter another amount spent: $"))
                     self.amount = self.amount - self.deduction
                     sub_amount.append(self.deduction)
                     sub = str(input("Do you have another item to deduct, enter yes or no: "))
-                    continue
+                    if sub == "yes":
+                        True
+                        continue
+                    elif sub == "no":
+                        False
+                        break    
             except ValueError:
                 print("You didn't enter a number for the amount spent!")
                 sub = "yes"

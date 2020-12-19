@@ -167,6 +167,9 @@ class ExpenseTracker:
     def categorize_shopping(self): #Christian 
         '''This method will contain a dictionary with categories the user will 
         use to know what to shop for.   
+        
+        Returns:
+            Will return the person and item the user is shopping for. 
         '''
         shopping_list = [] 
         item = []
